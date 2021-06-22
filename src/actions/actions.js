@@ -35,6 +35,7 @@ export const startSelectCountry = (country) => {
     return (dispatch) => {
         axios.get(`https://disease.sh/v3/covid-19/countries/${country}?yesterday=${country}`)
             .then((response) => {
+                console.log(response.data)
                 dispatch(selectCountry(response.data))
             })
             .catch((error) => {

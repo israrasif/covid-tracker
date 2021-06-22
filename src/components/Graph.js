@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Line } from 'react-chartjs-2'
 import { makeStyles } from '@material-ui/core'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 
 const useStyles = makeStyles({
