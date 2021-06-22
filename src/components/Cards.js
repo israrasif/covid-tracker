@@ -29,7 +29,7 @@ const country = useSelector((state) => {
 
 return (
     <Grid container className={classes.root}>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Total Cases
@@ -42,7 +42,7 @@ return (
                 </Typography>
             </CardContent>
         </Card>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Recovered
@@ -55,7 +55,7 @@ return (
                 </Typography>
             </CardContent>
         </Card>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Total Deaths
