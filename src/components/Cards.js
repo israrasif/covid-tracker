@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -29,7 +29,7 @@ const country = useSelector((state) => {
 
 return (
     <Grid container className={classes.root}>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Total Cases
@@ -42,7 +42,7 @@ return (
                 </Typography>
             </CardContent>
         </Card>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Recovered
@@ -55,7 +55,7 @@ return (
                 </Typography>
             </CardContent>
         </Card>
-        <Card item className={classes.card}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography>
                     Total Deaths
