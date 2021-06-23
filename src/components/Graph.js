@@ -7,8 +7,8 @@ import { Grid } from '@material-ui/core'
 
 const useStyles = makeStyles({
     root: {
-        width: '60vw',
-        height: 'auto'
+        height: 'auto',
+        width: 'auto',
     }
 })
 

@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   root: {
       width: '100%',
+      height: 'auto',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -26,6 +27,16 @@ const useStyles = makeStyles({
   map: {
     height: '50vh',
     width: 'auto'
+  },
+  tableGraph: {
+    width: '100%',
+    height: '100%'
+  },
+  table : {
+    height: '70vh',
+    width: '100%',
+    overflow: 'auto',
+    margin: '10px'
   }
 });
 
@@ -52,9 +63,14 @@ useEffect(() => {
       </Grid>
       <Cards />
       <MapCovid className={classes.map}/>
-      <Grid container className={classes.root}>
-        <CountriesTable item md={4} sm={12}/>
-        <Graph item md={8} sm={12}/>
+      <Grid container justify='space-between' alignItems='center' className={classes.tableGraph}>
+        <Grid  item md={4} xs={12} className={classes.table}>
+          <CountriesTable />
+        </Grid>
+        <Grid item md={7} xs={12}>
+          <Graph />
+        </Grid>
+        
       </Grid>
     </div>
   )

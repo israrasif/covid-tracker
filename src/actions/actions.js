@@ -35,7 +35,6 @@ export const startSelectCountry = (country) => {
     return (dispatch) => {
         axios.get(`https://disease.sh/v3/covid-19/countries/${country}?yesterday=${country}`)
             .then((response) => {
-                console.log(response.data)
                 dispatch(selectCountry(response.data))
             })
             .catch((error) => {
@@ -44,7 +43,7 @@ export const startSelectCountry = (country) => {
 
         axios.get(`https://disease.sh/v3/covid-19/historical/${country}`)
             .then((response) => {
-                dispatch(setHistoryData(response.data.timeline))
+                dispatch(setHistoryData(response.data.timeline, country))
             })
             .catch((error) => {
                 alert(error.message)
@@ -63,7 +62,7 @@ export const startHistoryData = () => {
     return (dispatch) => {
         axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=30')
             .then((response) => {
-                dispatch(setHistoryData(response.data))
+                dispatch(setHistoryData(response.data, 'WorldWide'))
             })
             .catch((error) => {
                 alert(error.message)
@@ -71,9 +70,10 @@ export const startHistoryData = () => {
     }
 }
 
-const setHistoryData = (data) => {
+const setHistoryData = (data, country) => {
     return {
         type: 'SET_HISTORY_DATA',
-        payload: data
+        payload: data,
+        country: country
     }
 }

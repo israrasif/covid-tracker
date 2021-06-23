@@ -22,8 +22,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 const useStyles = makeStyles({
     table : {
-        height: '75vh',
-        width: 'auto',
+        height: '50vh',
         overflow: 'auto'
     },
     tableHead : {
@@ -37,13 +36,13 @@ const allCountries = useSelector((state) => {
     return state.data.allCountries
 })
 
-const sortedCountries = [].concat(allCountries.sort((a, b) => parseFloat(b.cases) - parseFloat(a.cases)))
+const sortedCountries = allCountries.slice().sort((a, b) => parseFloat(b.cases) - parseFloat(a.cases))
 
 const classes = useStyles()
 
 return (
-    <Box className={classes.table}>
-        <Table>
+    <Box>
+        <Table >
             <TableHead className={classes.tableHead}>
                 <TableRow>
                     <StyledTableCell>Country</StyledTableCell>

@@ -5,10 +5,6 @@ import {MapContainer, TileLayer, useMap, Circle, Popup} from 'react-leaflet'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
-    mapContainer: {
-        height: '100%',
-        margin: '10px'
-    },
     flag: {
         height: '80px',
         width: '100%',
@@ -28,31 +24,36 @@ const allCountries = useSelector((state) => {
 
 const [lat, setLat] = useState(selectedCountry.countryInfo ? selectedCountry.countryInfo.lat : 51 )
 const [long, setLong] = useState(selectedCountry.countryInfo ? selectedCountry.countryInfo.long : 0)
+const [zoomIn, setZoomIn] = useState(2)
 
 useEffect(() => {
     if(selectedCountry.countryInfo){
         setLat(selectedCountry.countryInfo.lat)
         setLong(selectedCountry.countryInfo.long)
+        setZoomIn(4)
+    } else {
+        setZoomIn(2)
+        setLat(51)
+        setLong(0)
     }
 }, [selectedCountry])
 
 const center = [lat, long]
-const zoom = 4
 
 function ChangeView() {
     const map = useMap();
-    map.setView(center);
+    map.setView(center, zoomIn);
     return null;
   }
 
 const classes = useStyles()
 
 return (
-<div className={classes.mapContainer}>
+<div>
     <MapContainer
         id='mapContainer'
         center={center} 
-        zoom={zoom} 
+        zoom={zoomIn} 
         scrollWheelZoom={false}
     >
         <ChangeView center={center} />
