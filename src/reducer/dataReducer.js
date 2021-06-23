@@ -29,6 +29,8 @@ const dataReducer = (state = initialValue, action) => {
                     datasets: [
                     {
                         label: 'cases',
+                        backgroundColor: "rgba(204, 16, 52, 0.5)",
+                        borderColor: "#CC1034", 
                         data: Object.values(action.payload.cases)
                     }
                         ]

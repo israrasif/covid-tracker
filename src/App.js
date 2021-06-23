@@ -12,7 +12,7 @@ import './App.css'
 
 import 'leaflet/dist/leaflet.css'
 import 'leaflet/dist/leaflet'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
@@ -20,7 +20,8 @@ const useStyles = makeStyles({
       width: '100%',
       display: 'flex',
       justifyContent: 'space-between',
-      marginBottom: '5vw'
+      alignItems: 'center',
+      margin: '10px 5px'
   },
   map: {
     height: '50vh',
@@ -41,13 +42,19 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>Covid-19 Tracker</h1>
-      <Dropdown />
+      <Grid container className={classes.root}>
+        <Typography 
+          variant='h4'
+        >
+          Covid-19 Tracker
+        </Typography>
+        <Dropdown />
+      </Grid>
       <Cards />
       <MapCovid className={classes.map}/>
       <Grid container className={classes.root}>
-        <CountriesTable item md={4} xs={12}/>
-        <Graph item md={8} xs={12}/>
+        <CountriesTable item md={4} sm={12}/>
+        <Graph item md={8} sm={12}/>
       </Grid>
     </div>
   )

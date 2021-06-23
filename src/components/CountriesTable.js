@@ -18,18 +18,18 @@ const StyledTableCell = withStyles((theme) => ({
     body: {
       fontSize: 14,
     },
-  }))(TableCell)
+}))(TableCell)
 
 const useStyles = makeStyles({
     table : {
         height: '75vh',
+        width: 'auto',
         overflow: 'auto'
     },
     tableHead : {
         position: 'sticky'
     }
 })
-
 
 const CountriesTable = () => {
 
